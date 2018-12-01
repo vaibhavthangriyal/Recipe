@@ -1,0 +1,8 @@
+.fa-edit{
+    margin-left: 10px;
+}
+
+.fa-edit:hover{
+    opacity: 50%;
+    color: brown;
+}

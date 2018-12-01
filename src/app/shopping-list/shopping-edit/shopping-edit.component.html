@@ -1,0 +1,42 @@
+<div class="row  justify-content-center">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onAddItem()" #mainForm="ngForm" class="form-inline">
+      <div class="row">
+        <div class="col-5 form-group" >
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            ngModel
+            name="nameInput"
+            required
+            placeholder="Name"
+            >
+        </div>
+        <div class="col-4 form-group">
+          <input
+            type="number"
+            id="amount"
+            class="form-control"
+            name="amountInput"
+            placeholder="Amount"
+            required
+            ngModel
+            pattern="^(0?[1-9]|[1-9][0-9])$"
+            >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button 
+          class="btn btn-success mr-2"
+          type="submit" 
+          (click)="onAddItem()"
+          [disabled]="!mainForm.valid"
+          >{{editMode ? "Update" : "Add"}}</button>
+          <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

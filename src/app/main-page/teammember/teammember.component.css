@@ -1,0 +1,7 @@
+.card:hover{
+    cursor: pointer;
+    background: rgba(201, 221, 255,0.9);
+}
+.row{
+    width: 100%;
+}

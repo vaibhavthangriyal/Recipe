@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col justify-content-center">
+    <app-shopping-edit></app-shopping-edit>
+    <hr>
+    <ul class="list-group justify-content-center col-xs-12">
+      <a
+        class="list-group-item text-primary "
+        style="cursor: pointer"
+        *ngFor="let ingredient of ingredients; let i = index"
+      >
+        {{ ingredient.name | uppercase }} ({{ ingredient.amount }})
+        <div class="d-inline float-right" >
+        <button class="btn btn-info" (click)="onClickItem(i)">edit</button>
+        <button class="btn btn-danger ml-2" (click)="onDelete(i)">delete</button>
+        </div> 
+      </a>
+    </ul>
+  </div>
+</div>

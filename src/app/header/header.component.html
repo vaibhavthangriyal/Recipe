@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="">Recipe Book</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="Navbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link"  routerLinkActive="active" routerLink="/recipes"  *ngIf="authService.isAuthenticated()">Recipes </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="shopping-list" routerLinkActive="active"  *ngIf="authService.isAuthenticated()">Shopping List</a>
+      </li>
+
+      <form class="form-inline my-2 my-lg-0 col-auto ml-auto">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    <ng-template [ngIf]="authService.isAuthenticated()">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="profile"><i class="fa fa-user">Welcome {{username}}</i></a>
+          </li>
+      <li class="nav-item dropdown ml-auto">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-gear">More</i>  
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/signin">Messages</a>
+          <a class="dropdown-item" href="#">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="onLogout()" *ngIf="authService.isAuthenticated()"><i class="fa fa-user-times">LogOut</i>  </a>
+        </div>
+      </li>
+    </ng-template>
+      <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+        <a class="nav-link"  routerLink="signin" >Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>

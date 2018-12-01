@@ -1,0 +1,21 @@
+<div class="card">
+<a
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  style="cursor:pointer;"
+  class="list-group-item clearfix text-center">
+  <div class="pull-left card-header">
+    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+  </div>
+  <span class="float-center card-body">
+        <img
+          [src]="recipe.imagePath"
+          alt="{{ recipe.name }}"
+          class="img-responsive"
+          style="max-height: 50px;">
+      </span>
+      <div class="card-footer">
+          <p class="list-group-item-text">{{ recipe.description }}</p>
+      </div>
+</a>
+</div>
